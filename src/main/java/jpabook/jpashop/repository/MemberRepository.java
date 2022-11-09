@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 @RequiredArgsConstructor
-public class MemberRepository {\
+public class MemberRepository {
     private final EntityManager em;
 
     public void save(Member member){
@@ -22,11 +22,11 @@ public class MemberRepository {\
     }
 
     public List<Member> findAll(){
-        em.createQuery("select m from Member m", Member.class).getResultList();
+        return em.createQuery("select m from Member m", Member.class).getResultList();
     }
 
     public List<Member> findByName(String name){
-        return em.createQuery("select m from Member m where m.name = :name", Member.class)
+        return em.createQuery("select m from Member m where m.username = :name", Member.class)
                 .setParameter("name", name).getResultList();
     }
 

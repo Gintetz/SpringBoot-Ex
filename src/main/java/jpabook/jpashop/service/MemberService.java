@@ -40,6 +40,6 @@ public class MemberService {
     }
 
     public Member findOne(Long memberId){
-        memberRepository.findOne(memberId);
+        return memberRepository.findOne(memberId);
     }
 }
